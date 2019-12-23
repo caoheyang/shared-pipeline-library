@@ -1,5 +1,4 @@
 def call(body) {
-  def region = config.region ? config.region: 'cn-north-1'
   node {
     stage('chekcout source code'){
         checkout scm

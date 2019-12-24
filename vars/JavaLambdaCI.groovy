@@ -6,6 +6,7 @@ def call(body) {
       }
       stage('compile') {
         sh('mvn clean package')
+        sh('pwd')
       }
       stage('udpate lambda function') {
         def update_lambda_code = libraryResource 'update_lambda.py'

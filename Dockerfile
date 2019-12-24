@@ -1,5 +1,7 @@
 FROM jenkinsci/blueocean
+ADD  apache-maven-3.6.3-bin.tar.gz /usr/local/
+ENV  MAVEN_HOME=/usr/local/apache-maven-3.6.3
+ENV  PATH=$JAVA_HOME/bin:$MAVEN_HOME/bin:$PATH
 USER root
-RUN apt-get update && apt-get install -y libltdl7.*
-RUN apt-get install vim -y
-RUN apt-get install maven -y
+RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
+USER jenkins

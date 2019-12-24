@@ -1,6 +1,6 @@
 def call(body) {
   pipeline {
-    node(master) {
+    node {
       stage('chekcout source code') {
         checkout scm
       }

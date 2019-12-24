@@ -1,4 +1,4 @@
-def call(body) 
+def call(body){ 
   pileline{
     agent any
     tools {

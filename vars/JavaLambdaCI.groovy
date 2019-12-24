@@ -4,7 +4,7 @@ def call(body) {
   body.delegate = config
   body()
 
-  def jenkins_node = 'master'
+  def jenkins_node = 'slave'
 
   def project = config.project
   pipeline {

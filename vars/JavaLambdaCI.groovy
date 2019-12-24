@@ -1,10 +1,10 @@
-def call(body) {
+def call(body) 
   node {
     agent {
-        docker {
-            image 'maven:3-alpine' 
-            args '-v /root/.m2:/root/.m2' 
-        }
+      docker {
+          image 'maven:3-alpine' 
+          args '-v /root/.m2:/root/.m2' 
+      }
     }
     stage('chekcout source code'){
         checkout scm

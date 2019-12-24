@@ -3,11 +3,8 @@ def call(body) {
   body.resolveStrategy = Closure.DELEGATE_FIRST
   body.delegate = config
   body()
-  
-  node {
-    agent {
-        label master
-    }
+
+  node(master) {
     stage('chekcout source code'){
         checkout scm
     }

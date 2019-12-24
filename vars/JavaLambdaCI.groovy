@@ -1,12 +1,15 @@
-def call(body){ 
-  pipeline {
-    agent { docker 'maven:3-alpine' } 
-    stages {
-        stage('Example Build') {
-            steps {
-                sh 'mvn clean package'
-            }
-        }
-    }
-  }  
-}
+pipeline {
+  agent { label master } 
+  stages {
+      stage('checkout code') {
+          steps {
+                checkout scm
+          }
+      }
+      stage('compile') {
+          steps {
+              sh 'mvn clean package'
+          }
+      }
+  }
+}  

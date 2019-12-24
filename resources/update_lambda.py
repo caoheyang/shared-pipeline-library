@@ -1,6 +1,5 @@
 import boto3, json, os, argparse, zipfile, glob, botocore
 
-
 def update_lambda(client, function_name, zip_path, profile_name, region):
 	"""
 	更新lambda函数代码

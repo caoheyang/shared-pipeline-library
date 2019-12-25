@@ -4,7 +4,7 @@ def call(body) {
   body.delegate = config
   body()
   
-  def project = env.JOB_NAME
+  def project = config.project
   
   def jenkins_node = 'master'
  

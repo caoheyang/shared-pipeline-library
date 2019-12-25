@@ -17,7 +17,7 @@ def call(body) {
       }
       stage('udpate lambda function') {
         print('--------测试输出---------')
-        def path=sh('pwd');
+        def path=pwd()
         print(path)
         def update_lambda_code = libraryResource 'update_lambda.py'
         writeFile file: 'update_lambda.py', text: update_lambda_code

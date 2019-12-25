@@ -13,7 +13,7 @@ def call(body) {
         checkout scm
       }
       stage('deploy website to S3') {
-        sh('aws s3 sync . s3://'+project+'/  --profile global --region us-east-1 --delete Jenkinsfile --delete README.md  --delete --exclude ".git/*"')
+        sh('aws s3 sync . s3://'+project+'/  --profile global --region us-east-1 --delete --exclude ".git/*" --exclude "Jenkinsfile" --exclude "README.md"')
       }
     }
   }

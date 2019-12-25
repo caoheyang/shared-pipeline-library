@@ -5,10 +5,8 @@ def call(body) {
   body()
   
   def project = config.project.toLowerCase()
-
   def jenkins_node = 'master'
-
-  def project = config.project
+  
   pipeline {
     node {
       stage('chekcout source code') {

@@ -17,7 +17,6 @@ def call(body) {
         sh('mvn clean package')
       }
       stage('udpate lambda function') {
-        print(project)
         def file_path=pwd()
         def update_lambda_code = libraryResource 'update_lambda.py'
         writeFile file: 'update_lambda.py', text: update_lambda_code

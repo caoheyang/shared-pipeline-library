@@ -1,8 +1,10 @@
 def call(body) {
   def config = [:]
-  resolveStrategy = Closure.DELEGATE_FIRST
+  body.resolveStrategy = Closure.DELEGATE_FIRST
   body.delegate = config
   body()
+  
+  def project = config.project.toLowerCase()
 
   def jenkins_node = 'master'
 
@@ -16,6 +18,7 @@ def call(body) {
         sh('mvn clean package')
       }
       stage('udpate lambda function') {
+        print(project)
         def file_path=pwd()
         def update_lambda_code = libraryResource 'update_lambda.py'
         writeFile file: 'update_lambda.py', text: update_lambda_code

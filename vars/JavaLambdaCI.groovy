@@ -16,7 +16,11 @@ def call(body) {
         sh('mvn clean package')
       }
       stage('udpate lambda function') {
-        print(System.getenv('JOB_NAME'))
+        def build = Thread.currentThread().toString()
+        def regexp= ".+?/job/([^/]+)/.*"
+        def match = build  =~ regexp
+        def jobName = match[0][1]
+        print(jobName)
         def file_path=pwd()
         def update_lambda_code = libraryResource 'update_lambda.py'
         writeFile file: 'update_lambda.py', text: update_lambda_code

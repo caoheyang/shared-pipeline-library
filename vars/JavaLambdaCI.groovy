@@ -4,9 +4,10 @@ def call(body) {
   body.delegate = config
   body()
   
-  def project = config.project.toLowerCase()
-  def jenkins_node = 'master'
+  def project = env.JOB_BASE_NAME
   
+  def jenkins_node = 'master'
+ 
   pipeline {
     node {
       stage('chekcout source code') {
